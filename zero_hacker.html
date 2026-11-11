@@ -69,7 +69,7 @@ body:after{content:"";position:fixed;top:0;left:0;right:0;height:3px;z-index:999
 #nav.sc{background:rgba(3,5,13,.88);border-color:rgba(0,217,255,.28);box-shadow:0 10px 40px rgba(0,0,0,.5)}
 .navIn{height:62px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:0 18px}
 .logo{display:flex;align-items:center;gap:11px;min-width:0;flex-shrink:1}
-.logo svg{width:30px;height:34px;flex-shrink:0;filter:drop-shadow(0 0 10px rgba(0,217,255,.35))}
+.logo .academyLogo{width:40px;height:40px;flex:0 0 40px;object-fit:contain;display:block;filter:drop-shadow(0 0 8px rgba(0,217,255,.22))}
 .logo b{font:700 14px var(--disp);letter-spacing:.12em;direction:ltr;white-space:nowrap}
 .logo b i{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .nlinks{display:flex;gap:2px}
@@ -626,7 +626,7 @@ section,.hero,footer{min-width:0}
   .navIn{height:56px;padding-inline:12px;gap:8px}
   .logo{gap:7px}
   .logo b{font-size:11px;letter-spacing:.07em}
-  .logo svg{width:26px;height:30px}
+  .logo .academyLogo{width:34px;height:34px;flex-basis:34px}
   .navR .btn{padding:8px 10px;font-size:10px}
   #burger{width:36px;height:36px}
   #mnav{left:6px;right:6px;top:max(70px,calc(env(safe-area-inset-top) + 62px));max-height:calc(100dvh - 78px)}
@@ -671,6 +671,31 @@ section,.hero,footer{min-width:0}
 }
 
 </style>
+
+<style id="mobile-phase-videos-stacked">
+/* Mobile: stack the three phase videos vertically; desktop keeps its three-column layout. */
+@media (max-width: 720px) {
+  .roadmapGrid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    justify-items: center !important;
+    gap: 22px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    padding: 4px 0 14px !important;
+    margin-inline: 0 !important;
+    scroll-snap-type: none !important;
+  }
+  .phaseVideoCard {
+    width: min(100%, 360px) !important;
+    min-width: 0 !important;
+    aspect-ratio: 9 / 16 !important;
+    scroll-snap-align: none !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <!-- قاب + شناسه + نوار پیشرفت -->
@@ -682,7 +707,7 @@ section,.hero,footer{min-width:0}
 <!-- ناوبری -->
 <nav id="nav"><div class="navIn">
 <a aria-label="ROOZ-e-SEFR" class="logo" href="#top">
-<svg aria-hidden="true" viewbox="0 0 34 38"><defs><lineargradient id="gLogo" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#00D9FF"></stop><stop offset=".6" stop-color="#7B3CFF"></stop><stop offset="1" stop-color="#D946EF"></stop></lineargradient></defs><polygon fill="none" points="17,2 31,10 31,28 17,36 3,28 3,10" stroke="url(#gLogo)" stroke-width="2"></polygon><text fill="#00D9FF" font-family="Space Grotesk,sans-serif" font-size="16" font-weight="700" text-anchor="middle" x="17" y="25">0</text></svg>
+<img class="academyLogo" src="logo.png" alt="لوگوی آکادمی روز صفر" width="40" height="40" loading="eager" decoding="async">
 <b>ROOZ-e-<i>SEFR</i></b>
 </a>
 <div class="nlinks"><a href="#overview">معرفی</a><a href="#roadmap">نقشه راه</a><a href="#program">سرفصل‌ها</a><a href="#faq">پرسش‌ها</a></div>
