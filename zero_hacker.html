@@ -60,7 +60,9 @@ button{font-family:inherit;cursor:pointer;background:none;border:0;color:inherit
 .certFrame b:nth-of-type(2){bottom:-2px;right:-2px;border-color:var(--mag);border-left:0;border-top:0;box-shadow:0 0 14px rgba(217,46,239,.3)}
 .certId{position:fixed;top:50%;left:20px;z-index:60;transform:translateY(-50%);writing-mode:vertical-rl;font:600 8px var(--mono);letter-spacing:.4em;color:#3d4a76;direction:ltr;pointer-events:none}
 .certId b{color:rgba(123,60,255,.7)}
-#sbar{position:fixed;top:8px;left:8px;right:8px;height:2px;width:0;margin-left:auto;background:var(--grad);z-index:9999;box-shadow:0 0 10px var(--glowC);transition:width .1s linear}
+body:after{content:"";position:fixed;top:0;left:0;right:0;height:3px;z-index:9998;pointer-events:none;background:rgba(112,132,175,.12)}
+#sbar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--grad);z-index:9999;border-radius:0 3px 3px 0;box-shadow:0 0 7px rgba(0,217,255,.45),0 0 16px rgba(123,60,255,.22);transition:width .09s linear;will-change:width}
+#sbar:after{content:"";position:absolute;right:0;top:0;width:34px;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.9));filter:blur(1px);opacity:.8}
 
 /* ── ناوبری ── */
 #nav{position:fixed;top:max(8px,env(safe-area-inset-top));left:8px;right:8px;z-index:80;background:rgba(3,5,13,.6);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(0,217,255,.14);clip-path:var(--chamfS);transition:.3s var(--ease)}
@@ -110,6 +112,9 @@ h2{font:800 clamp(26px,4.4vw,46px)/1.25 var(--fa)}
 .hero>.wrap>div:first-child{text-align:center;display:flex;flex-direction:column;align-items:center;min-width:0}
 .badge{display:inline-flex;align-items:center;gap:9px;font:600 10px var(--mono);letter-spacing:.2em;color:var(--cyan);border:1px solid var(--line);border-radius:99px;padding:8px 16px;background:rgba(0,217,255,.05);margin-bottom:28px;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis;direction:ltr}
 .badge i{width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan);animation:blink 1.8s steps(2) infinite;font-style:normal;flex-shrink:0}
+.badge{gap:10px;padding:9px 18px;border-radius:7px;border-color:rgba(0,217,255,.24);background:linear-gradient(100deg,rgba(0,217,255,.055),rgba(123,60,255,.055));font-size:9.5px;letter-spacing:.16em;box-shadow:0 6px 24px rgba(0,0,0,.16);position:relative}
+.badge:after{content:"";position:absolute;left:14px;right:14px;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,rgba(0,217,255,.45),rgba(123,60,255,.45),transparent)}
+.badgeSep{color:var(--violet);font-weight:700;opacity:.9}
 .hero h1{font:700 clamp(52px,9vw,112px)/.9 var(--disp);letter-spacing:.02em;direction:ltr;margin:0 auto 22px;display:flex;flex-direction:column;align-items:center;width:100%}
 .hero h1 .l1{display:inline-block;color:#fff;letter-spacing:.08em;line-height:1;position:relative;text-shadow:0 0 30px rgba(0,217,255,.4),0 0 70px rgba(123,60,255,.3)}
 .hero h1 .l1:before{content:"";position:absolute;top:-16px;left:50%;transform:translateX(-50%);width:44%;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.75}
@@ -125,7 +130,7 @@ h2{font:800 clamp(26px,4.4vw,46px)/1.25 var(--fa)}
 .hero .sub{font-size:15px;max-width:580px;margin-inline:auto;text-align:center}
 .manifest{margin-top:24px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;font:600 11px var(--mono);direction:ltr}
 .manifest span{color:var(--tx2);letter-spacing:.1em;padding:7px 12px;border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.02)}
-.manifest span:last-child{border:0;background:var(--grad);color:#fff}
+.manifest span:last-child{color:var(--tx2);letter-spacing:.1em;padding:7px 12px;border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.02)}
 .manifest i{color:var(--violet);font-style:normal}
 .heroCta{display:flex;gap:10px;margin-top:28px;flex-wrap:wrap;justify-content:center;width:100%}
 
@@ -350,7 +355,7 @@ section{padding:72px 0;scroll-margin-top:110px}
 .subline{width:min(400px,94%);gap:12px;margin-top:20px}
 .subline b{letter-spacing:.4em;padding-left:.4em}
 .certline{font-size:9.5px;letter-spacing:.24em}
-.badge{font-size:9px;padding:7px 13px;letter-spacing:.16em}
+.badge{font-size:8.5px;padding:8px 12px;letter-spacing:.11em;gap:7px}
 .term{font-size:10.5px;padding:9px 13px}
 .hero .sub{font-size:14px}
 .manifest span{padding:6px 10px;font-size:10px}
@@ -409,7 +414,7 @@ h2{font-size:clamp(24px,5.5vw,36px)}
 .certFrame{inset:max(6px,env(safe-area-inset-top)) max(6px,env(safe-area-inset-right)) max(6px,env(safe-area-inset-bottom)) max(6px,env(safe-area-inset-left))}}
 @media(max-width:560px){:root{--pad:14px}
 .hero h1{font-size:clamp(42px,14vw,60px)}
-.badge{font-size:8.5px;padding:6px 11px;letter-spacing:.12em}
+.badge{font-size:7.8px;padding:7px 10px;letter-spacing:.08em;gap:6px}
 .term{font-size:10px;padding:8px 11px}
 .manifest{gap:6px}
 .manifest span{padding:5px 9px;font-size:9.5px}
@@ -525,7 +530,148 @@ html{scroll-behavior:auto}
 }
 @media(prefers-reduced-motion:reduce){.overviewStat,.phaseVideoCard{transition:none!important;transform:none!important}}
 
-</style></head>
+</style><style>
+/* ===== FINAL RESPONSIVE PASS — ZERO HACKER ===== */
+img,video,canvas,svg{max-width:100%}
+.wrap{min-width:0}
+section,.hero,footer{min-width:0}
+#sbar{height:4px;max-width:100vw;will-change:width}
+#sbar:after{width:42px}
+
+/* Keep video cards and their overlays active on every device (not only no-JS mode). */
+.roadmapGrid{grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch}
+.phaseVideoCard{min-height:0;aspect-ratio:9/16;border-radius:0;clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,18px 100%,0 calc(100% - 18px))}
+.phaseVideoPlayer{display:block;object-fit:contain;object-position:center;background:#02040b;z-index:1}
+.phaseVideoCard:before,.phaseVideoCard:after{pointer-events:none}
+.phaseVideoCard:after{background:linear-gradient(180deg,rgba(2,5,15,.78),transparent 15%,transparent 78%,rgba(2,5,15,.16))}
+.phaseVideoHead{z-index:5;background:linear-gradient(180deg,rgba(3,5,13,.88),rgba(3,5,13,.2));pointer-events:none}
+.phaseVideoHex,.phaseVideoLabel,.phaseVideoFoot{z-index:4;pointer-events:none}
+.phaseVideoLabel{top:43%;opacity:.92}
+.phaseVideoFoot{bottom:54px;padding:8px 10px;background:linear-gradient(90deg,rgba(3,5,13,.78),rgba(3,5,13,.45))}
+.phaseVideoStatus{position:absolute;z-index:6;left:8px;right:8px;bottom:7px;min-height:35px;display:flex;align-items:center;justify-content:center;padding:5px 8px;text-align:center;background:rgba(3,5,13,.92);border:1px solid color-mix(in srgb,var(--phase-accent) 35%,transparent);color:#c8d3e8;font-size:9px;line-height:1.5;pointer-events:none;backdrop-filter:blur(8px)}
+.phaseVideoStatus.is-ready,.phaseVideoStatus.is-playing{opacity:0;transition:opacity .25s ease}
+.phaseVideoStatus.is-error{opacity:1;color:#ffc4d0;border-color:rgba(255,90,120,.45)}
+
+@media(max-width:1150px){
+  .hero .wrap{gap:34px}
+  .emWrap{min-height:500px}
+  .certId{display:none}
+}
+@media(max-width:920px){
+  section{scroll-margin-top:92px}
+  .stats .wrap{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .stat{padding:24px 8px}
+  .stat:nth-child(4){border-inline-start:0}
+  .stat:nth-child(n+4){border-top:1px solid rgba(0,217,255,.08)}
+  .detailGrid{grid-template-columns:minmax(0,1fr)}
+  .courseTools{grid-template-columns:minmax(0,1fr)}
+  .roadmapGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .overviewStats{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:720px){
+  :root{--pad:16px}
+  body{font-size:14.5px}
+  section{padding:68px 0;scroll-margin-top:82px}
+  .hero{min-height:auto;padding:116px 0 58px}
+  .hero .wrap{grid-template-columns:minmax(0,1fr);gap:36px}
+  .emWrap{min-height:clamp(300px,82vw,430px);order:-1}
+  .emblemImg{width:min(390px,86vw)}
+  .emblemTag{bottom:-34px;letter-spacing:.2em}
+  .hero h1{font-size:clamp(42px,12.5vw,72px);margin-bottom:16px}
+  .badge{white-space:normal;justify-content:center;line-height:1.5;max-width:100%;font-size:8px;letter-spacing:.08em;padding:7px 10px}
+  .certline{font-size:8px;letter-spacing:.16em;line-height:1.8}
+  .subline{width:min(420px,94%);gap:10px}
+  .subline b{letter-spacing:.28em;padding-left:.28em}
+  .hero .sub,.sub{font-size:13.5px;line-height:2}
+  .manifest{gap:6px;max-width:100%}
+  .manifest span{font-size:9px;padding:6px 8px;letter-spacing:.04em}
+  .manifest i{font-size:10px}
+  .heroCta{gap:9px}
+  .heroCta .btn{width:100%;min-height:46px}
+  .stats .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat{border-inline-start:0!important;border-top:1px solid rgba(0,217,255,.08)!important;padding:20px 8px}
+  .stat:nth-child(-n+2){border-top:0!important}
+  .jGrid,.detailsGrid{grid-template-columns:minmax(0,1fr)}
+  .rtabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+  .node-tab{white-space:normal;text-align:center;padding:11px 8px;font-size:10px;min-width:0}
+  .dbody{padding:18px 14px}
+  .tbar{font-size:9px;padding:10px 12px}
+  .srow{gap:8px;font-size:10px;overflow-wrap:anywhere}
+  .srow i{min-width:12px}
+  .overviewStats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .overviewStat{padding:18px 10px}
+  .roadmapGrid{display:grid;grid-template-columns:repeat(3,minmax(0,78vw));justify-content:start;gap:14px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:4px 2px 18px;margin-inline:calc(var(--pad)*-1);padding-inline:var(--pad)}
+  .phaseVideoCard{width:100%;scroll-snap-align:center}
+  .phaseVideoHead,.phaseVideoFoot{font-size:7px;padding:10px 9px;letter-spacing:.08em}
+  .phaseVideoFoot{bottom:50px}
+  .phaseVideoHex{width:48px;height:48px;font-size:14px}
+  .phaseVideoLabel{left:8px;right:8px}
+  .phaseVideoLabel h3{font-size:12px;overflow-wrap:anywhere}
+  .phaseVideoLabel p{font-size:7px;letter-spacing:.12em}
+  .phaseVideoStatus{font-size:8px}
+  .roadConnector{gap:7px;font-size:7px;letter-spacing:.1em;flex-wrap:wrap}
+  .roadConnector i{width:22px}
+  .courseTools{gap:9px}
+  .courseSearch{min-height:50px;padding-inline:12px}
+  .safetyBanner{align-items:flex-start;padding:14px;gap:10px}
+  .safetyBanner p{font-size:11.5px}
+  .regBody{padding:32px 18px 34px}
+  .regActions{flex-direction:column}
+  .regActions>*{width:100%}
+  .console{gap:8px;padding:12px 10px}
+  .console nav{gap:2px}
+  .console nav a{padding:7px 8px;font-size:8px;letter-spacing:.08em}
+  .fmeta{font-size:7px;letter-spacing:.1em;padding-inline:12px;line-height:1.8}
+  #nav{left:6px;right:6px}
+  .navIn{height:56px;padding-inline:12px;gap:8px}
+  .logo{gap:7px}
+  .logo b{font-size:11px;letter-spacing:.07em}
+  .logo svg{width:26px;height:30px}
+  .navR .btn{padding:8px 10px;font-size:10px}
+  #burger{width:36px;height:36px}
+  #mnav{left:6px;right:6px;top:max(70px,calc(env(safe-area-inset-top) + 62px));max-height:calc(100dvh - 78px)}
+  #toTop{right:max(10px,env(safe-area-inset-right));bottom:max(14px,env(safe-area-inset-bottom))}
+  #stickyCta{bottom:max(62px,calc(env(safe-area-inset-bottom) + 58px));max-width:calc(100vw - 28px);white-space:normal;text-align:center}
+  #toast{max-width:calc(100vw - 28px);bottom:120px}
+  .certFrame{inset:max(5px,env(safe-area-inset-top)) max(5px,env(safe-area-inset-right)) max(5px,env(safe-area-inset-bottom)) max(5px,env(safe-area-inset-left))}
+}
+@media(max-width:420px){
+  :root{--pad:13px}
+  .hero{padding-top:108px}
+  .hero h1{font-size:clamp(38px,12vw,50px);letter-spacing:0}
+  .hero h1 .l1,.hero h1 .l2{letter-spacing:.045em}
+  .manifest span{font-size:8px;padding:5px 6px}
+  .emWrap{min-height:290px}
+  .overviewStat span{font-size:8px;letter-spacing:.1em}
+  .overviewStat small{font-size:10px}
+  .routeTag span{font-size:8px;letter-spacing:.1em;padding:9px 14px}
+  .faqItem summary{padding:13px 12px;font-size:12px}
+  .faqItem p{padding:0 12px 14px;font-size:11.5px}
+  .regTop{padding:11px 12px;font-size:8px;letter-spacing:.08em}
+  .regBody h2{font-size:22px}
+  .roadmapGrid{grid-template-columns:repeat(3,minmax(0,84vw))}
+  .phaseVideoFoot{gap:4px;font-size:6px;letter-spacing:.04em}
+}
+@media(max-width:350px){
+  .logo b{font-size:9px}
+  .navR .btn{display:none}
+  .hero h1{font-size:36px}
+  .manifest{gap:4px}
+  .manifest span{font-size:7px}
+  .overviewStats{grid-template-columns:minmax(0,1fr)}
+  .rtabs{grid-template-columns:minmax(0,1fr)}
+}
+@media(hover:none){
+  .phaseVideoCard:hover,.btnP:hover,.btnG:hover,.tBox:hover,#toTop:hover{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  #sbar{transition:none}
+  .phaseVideoStatus{transition:none}
+  .roadmapGrid{scroll-behavior:auto}
+}
+
+</style>
+</head>
 <body>
 <!-- قاب + شناسه + نوار پیشرفت -->
 <div aria-hidden="true" class="certFrame"><b></b><b></b></div>
@@ -549,13 +695,12 @@ html{scroll-behavior:auto}
 <header class="hero" id="top">
 <div class="wrap">
 <div>
-<span class="badge"><i></i>ROOZ-e-SEFR ACADEMY · ZERO HACKER · 30-DAY</span>
+<span class="badge"><i></i>ROOZ-e-SEFR <span class="badgeSep">/</span> ACADEMY <span class="badgeSep">·</span> ZERO HACKER <span class="badgeSep">/</span> 30-DAY</span>
 <h1><span class="l1">ZERO</span><span class="l2">HACKER</span></h1>
 <div class="subline"><i></i><b>START FROM ZERO</b><i></i></div>
 <div class="certline">ROOZ-e-SEFR ACADEMY — CYBERSECURITY — 30 DAY PATH</div>
-<div class="term"><span class="pr">root@zero:~$</span><span>./init --path=zero_hacker --mode=lab --ethics=on</span><span class="cur">▊</span></div>
 <p class="sub">یک مسیر آموزشی تجربه‌محور برای کسانی که می‌خواهند دنیای امنیت سایبری را کشف کنند؛ از امنیت شبکه‌های اجتماعی و سیستم‌ها تا پرورش ذهنیت یک هکر مسئول. هر فاز با <b>تجربه، نمایش و چالش‌های قابل فهم</b> همراه است.</p>
-<div class="manifest"><span>00 DISCOVER</span><i>→</i><span>01 EXPLORE</span><i>→</i><span>02 THINK</span><span>ONE JOURNEY</span></div>
+<div class="manifest"><span>00 DISCOVER</span><i>→</i><span>01 EXPLORE</span><i>→</i><span>02 THINK</span></div>
 <div class="heroCta">
 <a class="btn btnP" href="#program">مشاهده سرفصل‌ها ↓</a>
 <a class="btn btnG" href="#overview">آشنایی با مسیر ↓</a></div>
@@ -654,7 +799,7 @@ html{scroll-behavior:auto}
 
 <div class="courseTools reveal">
 <label class="courseSearch"><span>⌕</span><input aria-label="جست‌وجوی سرفصل‌ها" id="daySearch" placeholder="جست‌وجوی عنوان روز یا موضوع..." type="search"/></label>
-<div class="courseHint"><span class="hintMark">03</span><span>PHASES · ONE JOURNEY</span><b>برای دیدن سرفصل‌ها، یک فاز را انتخاب کن</b></div>
+<div class="courseHint"><span class="hintMark">03</span><span>PHASES · 30 DAYS</span><b>برای دیدن سرفصل‌ها، یک فاز را انتخاب کن</b></div>
 </div>
 <p id="noDayResults" class="sub" hidden>هیچ سرفصلی با این عبارت پیدا نشد.</p>
 <div class="rtabs" role="tablist">
@@ -818,8 +963,9 @@ async function copyTxt(v){try{await navigator.clipboard.writeText(v)}catch(e){co
 const sbar=$('#sbar'),nav=$('#nav'),toTop=$('#toTop');
 let ticking=false;
 function onScroll(){
-  const h=document.documentElement,max=h.scrollHeight-innerHeight;
-  if(sbar)sbar.style.width=(max>0?(scrollY/max)*100:0)+'%';
+  const h=document.documentElement,max=Math.max(0,h.scrollHeight-h.clientHeight);
+  const progress=max>0?Math.min(100,Math.max(0,(window.scrollY/max)*100)):0;
+  if(sbar)sbar.style.width=progress+'%';
   if(nav)nav.classList.toggle('sc',scrollY>24);
   if(toTop)toTop.classList.toggle('v',scrollY>innerHeight*.9);
 }
